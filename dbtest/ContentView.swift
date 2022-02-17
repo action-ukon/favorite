@@ -16,16 +16,18 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    var name = ""
-    var url = ""
+    @State var name = ""
+    @State var url = ""
     
     var body: some View {
         VStack{
             NavigationView {
                 List {
                     ForEach(items) { item in
-                        Text("\(item.name!)  \(item.url!)")
-                    }
+                        HStack{
+                            Link(item.name ?? "nil", destination: URL(string: item.url ?? "nil")!)
+                        }
+                    }.onDelete(perform: deleteItems)
                 }.toolbar {
                     /// ナビゲーションバーの右に+ボタン配置
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -33,7 +35,21 @@ struct ContentView: View {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
-                }
+                }.navigationTitle("極秘リスト")
+            }
+            HStack{
+                Text("サイト名：")
+                    .padding(1)
+                TextField("サイト名", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(1)
+            }
+            HStack{
+                Text("        URL：")
+                    .padding(1)
+                TextField("URL", text: $url)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(1)
             }
         }
     }
@@ -43,6 +59,17 @@ struct ContentView: View {
             newItem.id = UUID()
             newItem.name = name
             newItem.url = url
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { items[$0] }.forEach(viewContext.delete)
             do {
                 try viewContext.save()
             } catch {
