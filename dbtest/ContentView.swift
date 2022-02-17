@@ -12,21 +12,44 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.name, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.id, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
-
+    
+    var name = ""
+    var url = ""
+    
     var body: some View {
-        
-        List {
-            ForEach(items) { item in
-                
-                Text("Item at \(item.name!)")
-         
+        VStack{
+            NavigationView {
+                List {
+                    ForEach(items) { item in
+                        Text("\(item.name!)  \(item.url!)")
+                    }
+                }.toolbar {
+                    /// ナビゲーションバーの右に+ボタン配置
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+                }
             }
         }
-        Text("Select an item")
+    }
+    private func addItem() {
+        withAnimation {
+            let newItem = Item(context: viewContext)
+            newItem.id = UUID()
+            newItem.name = name
+            newItem.url = url
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
 }
 
