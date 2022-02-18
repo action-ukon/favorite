@@ -12,19 +12,6 @@ struct WebData: Identifiable{
     var url:String
 }
 
-class addList: ObservableObject {
-    @Published var name = ""
-    @Published var url = ""
-}
-
-
-//var WebList = [
-//    WebData(name: "同人スマート", url: "http://ddd-smart.net/"),
-//    WebData(name: "タレスト", url: "https://movie.eroterest.net"),
-//    WebData(name: "Pornhub", url: "https://jp.pornhub.com/")
-//]
 var WebList = [
-    WebData(name: "同人スマート", url: "http://ddd-smart.net/"),
-    WebData(name: "タレスト", url: "https://movie.eroterest.net"),
-    WebData(name: "Pornhub", url: "https://jp.pornhub.com/")
+    WebData(name: "Amazon", url: "https://www.amazon.co.jp")
 ]

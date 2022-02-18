@@ -16,8 +16,7 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @State var name = ""
-    @State var url = ""
+    @State private var showingSheet = false
     
     var body: some View {
         VStack{
@@ -31,42 +30,19 @@ struct ContentView: View {
                 }.toolbar {
                     /// ナビゲーションバーの右に+ボタン配置
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
+                        Button("+") {
+                            self.showingSheet.toggle()
                         }
+                        .sheet(isPresented: $showingSheet) {
+                            addView()
+                        }
+                        
                     }
                 }.navigationTitle("極秘リスト")
             }
-            HStack{
-                Text("サイト名：")
-                    .padding(1)
-                TextField("サイト名", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(1)
-            }
-            HStack{
-                Text("        URL：")
-                    .padding(1)
-                TextField("URL", text: $url)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(1)
-            }
         }
     }
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.id = UUID()
-            newItem.name = name
-            newItem.url = url
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
