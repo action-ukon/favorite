@@ -13,28 +13,31 @@ struct addView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var name:String = ""
     @State var url:String = ""
+    @EnvironmentObject var showingSheet: User
     
     var body: some View {
         VStack{
             HStack{
                 Text("サイト名：")
-                    .padding(1)
+                    .padding()
                 TextField("サイト名", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(1)
+                    .padding()
             }
             HStack{
                 Text("        URL：")
-                    .padding(1)
+                    .padding()
                 TextField("URL", text: $url)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(1)
+                    .padding()
             }
             Button("追加") {
                 addItem()
                 name = ""
                 url = ""
-            }
+                showingSheet.showingSheet = false
+            }.frame(maxWidth: .infinity, alignment: .trailing)
+                .padding()
         }
     }
     func addItem() {
@@ -57,5 +60,6 @@ struct addView: View {
 struct addView_Previews: PreviewProvider {
     static var previews: some View {
         addView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(User())
     }
 }

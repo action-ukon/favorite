@@ -15,8 +15,7 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.id, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
-    @State private var showingSheet = false
+     @EnvironmentObject var showingSheet: User
     
     var body: some View {
         VStack{
@@ -31,14 +30,14 @@ struct ContentView: View {
                     /// ナビゲーションバーの右に+ボタン配置
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("+") {
-                            self.showingSheet.toggle()
+                            self.showingSheet.showingSheet.toggle()
                         }
-                        .sheet(isPresented: $showingSheet) {
+                        .sheet(isPresented: $showingSheet.showingSheet) {
                             addView()
                         }
                         
                     }
-                }.navigationTitle("極秘リスト")
+                }.navigationTitle("お気に入り")
             }
         }
     }
@@ -59,5 +58,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+              .environmentObject(User())
     }
 }

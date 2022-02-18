@@ -15,3 +15,7 @@ struct WebData: Identifiable{
 var WebList = [
     WebData(name: "Amazon", url: "https://www.amazon.co.jp")
 ]
+
+class User: ObservableObject {
+    @Published var showingSheet:Bool = false
+}
