@@ -23,7 +23,9 @@ struct ContentView: View {
                 List {
                     ForEach(items) { item in
                         HStack{
-                            Link(item.name ?? "nil", destination: URL(string: item.url ?? "nil")!)
+                             if let url = item.url{
+                                  Link(item.name ?? "", destination: URL(string: url)!)
+                             }
                         }
                     }.onDelete(perform: deleteItems)
                 }.toolbar {

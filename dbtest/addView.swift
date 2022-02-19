@@ -31,13 +31,17 @@ struct addView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
             }
+            
             Button("追加") {
-                addItem()
-                name = ""
-                url = ""
-                showingSheet.showingSheet = false
+                if(name != "" || url != ""){
+                    addItem()
+                    name = "" as String
+                    url = "" as String
+                    showingSheet.showingSheet = false
+                }
             }.frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
+            
         }
     }
     func addItem() {

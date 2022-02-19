@@ -13,6 +13,8 @@ struct WebData: Identifiable{
 }
 
 var WebList = [
+    WebData(name: "Amazon", url: "https://www.amazon.co.jp"),
+    WebData(name: "Amazon", url: "https://www.amazon.co.jp"),
     WebData(name: "Amazon", url: "https://www.amazon.co.jp")
 ]
 
