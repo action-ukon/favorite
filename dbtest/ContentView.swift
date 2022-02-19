@@ -22,7 +22,15 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(items) { item in
-                        Link(item.name ?? "", destination: URL(string: item.url ?? "")!)
+                         let url = URL(string: item.url ?? "")!
+                         if(UIApplication.shared.canOpenURL(url)){
+                              Link(item.name ?? "", destination: url)
+                         }else{
+                              Text(item.name ?? "")
+                                   .foregroundColor(.gray)
+                                   .strikethrough()
+                              + Text("　※リンクが切れています")
+                         }
                     }.onDelete(perform: deleteItems)
                 }.toolbar {
                     /// ナビゲーションバーの右に+ボタン配置

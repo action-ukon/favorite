@@ -22,6 +22,7 @@ struct addView: View {
                     .padding()
                 TextField("サイト名", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
                     .padding()
             }
             HStack{
@@ -29,6 +30,7 @@ struct addView: View {
                     .padding()
                 TextField("URL", text: $url)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
                     .padding()
             }
             
