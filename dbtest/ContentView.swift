@@ -22,11 +22,7 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(items) { item in
-                        HStack{
-                             if let url = item.url{
-                                  Link(item.name ?? "", destination: URL(string: url)!)
-                             }
-                        }
+                        Link(item.name ?? "", destination: URL(string: item.url ?? "")!)
                     }.onDelete(perform: deleteItems)
                 }.toolbar {
                     /// ナビゲーションバーの右に+ボタン配置

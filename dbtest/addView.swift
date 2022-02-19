@@ -33,7 +33,7 @@ struct addView: View {
             }
             
             Button("追加") {
-                if(name != "" || url != ""){
+                if(name != "" && url != ""){
                     addItem()
                     name = "" as String
                     url = "" as String
