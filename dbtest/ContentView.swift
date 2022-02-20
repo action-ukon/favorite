@@ -38,7 +38,7 @@ struct ContentView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("+") {
                             self.showingSheet.showingSheet.toggle()
-                        }
+                        }.font(.system(size: 50))
                         .sheet(isPresented: $showingSheet.showingSheet) {
                             addView()
                         }
