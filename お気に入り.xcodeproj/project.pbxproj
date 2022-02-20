@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E199E84C27BD548C000B1A62 /* dbtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dbtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E199E84C27BD548C000B1A62 /* お気に入り.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "お気に入り.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E199E84F27BD548C000B1A62 /* dbtestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbtestApp.swift; sourceTree = "<group>"; };
 		E199E85127BD548C000B1A62 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 5; };
 		E199E85327BD548E000B1A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		E199E84D27BD548C000B1A62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E199E84C27BD548C000B1A62 /* dbtest.app */,
+				E199E84C27BD548C000B1A62 /* お気に入り.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 			);
 			name = favarite;
 			productName = dbtest;
-			productReference = E199E84C27BD548C000B1A62 /* dbtest.app */;
+			productReference = E199E84C27BD548C000B1A62 /* お気に入り.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E199E84727BD548C000B1A62 /* Build configuration list for PBXProject "dbtest" */;
+			buildConfigurationList = E199E84727BD548C000B1A62 /* Build configuration list for PBXProject "お気に入り" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -299,7 +299,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "action-ukon.dbtest";
-				PRODUCT_NAME = dbtest;
+				PRODUCT_NAME = "お気に入り";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,7 +328,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "action-ukon.dbtest";
-				PRODUCT_NAME = dbtest;
+				PRODUCT_NAME = "お気に入り";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E199E84727BD548C000B1A62 /* Build configuration list for PBXProject "dbtest" */ = {
+		E199E84727BD548C000B1A62 /* Build configuration list for PBXProject "お気に入り" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E199E85D27BD548E000B1A62 /* Debug */,
