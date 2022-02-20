@@ -22,6 +22,7 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(items) { item in
+                         //https://www.amazon.co.jp/
                          let url = URL(string: item.url ?? "")!
                          if(UIApplication.shared.canOpenURL(url)){
                               Link(item.name ?? "", destination: url)

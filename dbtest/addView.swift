@@ -62,7 +62,8 @@ struct addView: View {
         }
     }
     func urlFilter(value: String) {
-            let validedCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_.!/:=&"
+        //禁止文字：%
+            let validedCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_.!/:=&+?#"
             let sets = CharacterSet(charactersIn: validedCodes)
             url = String(value.unicodeScalars.filter(sets.contains).map(Character.init))
     }
