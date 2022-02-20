@@ -32,6 +32,7 @@ struct addView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
+                    .onChange(of: url, perform: urlFilter)
             }
             
             Button("追加") {
@@ -59,6 +60,11 @@ struct addView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+    func urlFilter(value: String) {
+            let validedCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_.!/:=&"
+            let sets = CharacterSet(charactersIn: validedCodes)
+            url = String(value.unicodeScalars.filter(sets.contains).map(Character.init))
     }
 }
 
