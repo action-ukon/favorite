@@ -21,7 +21,7 @@ struct ContentView: View {
         VStack{
             NavigationView {
                 List {
-                    ForEach(items) { item in
+                    ForEach(items, id: \.self) { item in
                          //https://www.amazon.co.jp/
                          let url = URL(string: item.url ?? "")!
                          if(UIApplication.shared.canOpenURL(url)){
