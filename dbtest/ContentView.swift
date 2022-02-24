@@ -22,7 +22,6 @@ struct ContentView: View {
                NavigationView {
                     List {
                          ForEach(items, id: \.self) { item in
-                              //https://www.amazon.co.jp/
                               let url = URL(string: item.url ?? "")!
                               if(UIApplication.shared.canOpenURL(url)){
                                    Link(item.name ?? "", destination: url)
@@ -30,21 +29,17 @@ struct ContentView: View {
                                    Text(item.name ?? "")
                                         .foregroundColor(.gray)
                                         .strikethrough()
-                                   + Text("　※リンクが切れています")
+                                   + Text("　※リンクが有効ではありません")
                               }
                          }.onDelete(perform: deleteItems) .onMove(perform: rowReplace)
-                    }.toolbar {
-                         /// ナビゲーションバーの右に+ボタン配置
-                         ToolbarItem(placement: .navigationBarTrailing) {
-                              Button("+") {
-                                   self.showingSheet.showingSheet.toggle()
-                              }.font(.system(size: 50))
-                                   .sheet(isPresented: $showingSheet.showingSheet) {
-                                        addView()
-                                   }
+                         Button("+") {
+                              self.showingSheet.showingSheet.toggle()
+                         }.sheet(isPresented: $showingSheet.showingSheet) {
+                              addView()
                          }
+                    }.toolbar {
                          ToolbarItem(placement: .navigationBarTrailing) {
-                              EditButton()
+                              EditButton().font(.system(size: 20))
                          }
                     }.navigationTitle("お気に入り")
                }
