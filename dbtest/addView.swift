@@ -18,21 +18,25 @@ struct addView: View {
     var body: some View {
         VStack{
             HStack{
-                Text("サイト名：")
-                    .padding()
+                VStack{
+                Text("サイト名")
+                        .frame(width: 350, height: 30, alignment: .leading)
                 TextField("サイト名", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
+                }
             }
             HStack{
-                Text("        URL：")
-                    .padding()
+                VStack{
+                Text("URL")
+                        .frame(width: 350, height: 30, alignment: .leading)
                 TextField("URL", text: $url)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
                     .onChange(of: url, perform: urlFilter)
+                }
             }
             
             Button("追加") {
