@@ -12,7 +12,7 @@ struct ContentView: View {
      @Environment(\.managedObjectContext) private var viewContext
      
      @FetchRequest(
-          sortDescriptors: [NSSortDescriptor(keyPath: \Item.id, ascending: true)],
+          sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
           animation: .default)
      private var items: FetchedResults<Item>
      @EnvironmentObject var showingSheet: User
@@ -21,7 +21,7 @@ struct ContentView: View {
           VStack{
                NavigationView {
                     List {
-                         ForEach(items, id: \.self) { item in
+                         ForEach(items) { item in
                               let url = URL(string: item.url ?? "")!
                               if(UIApplication.shared.canOpenURL(url)){
                                    Link(item.name ?? "", destination: url)

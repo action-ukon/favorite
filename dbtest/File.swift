@@ -7,6 +7,7 @@
 
 import Foundation
 struct WebData: Identifiable{
+    var timestamp = Date()
     var id = UUID()
     var name:String
     var url:String

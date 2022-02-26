@@ -50,6 +50,7 @@ struct addView: View {
     func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
+            newItem.timestamp = Date()
             newItem.id = UUID()
             newItem.name = name
             newItem.url = url

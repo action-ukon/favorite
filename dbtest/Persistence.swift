@@ -15,6 +15,7 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for i in 0..<WebList.count {
             let newItem = Item(context: viewContext)
+            newItem.timestamp = Date()
             newItem.id = UUID()
             newItem.name = WebList[i].name
             newItem.url = WebList[i].url
