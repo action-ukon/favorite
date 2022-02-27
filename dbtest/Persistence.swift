@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -15,8 +16,8 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for i in 0..<WebList.count {
             let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.id = UUID()
+//            newItem.timestamp = Date()
+            newItem.id = WebList[i].id
             newItem.name = WebList[i].name
             newItem.url = WebList[i].url
         }

@@ -12,8 +12,9 @@ struct ContentView: View {
      @Environment(\.managedObjectContext) private var viewContext
      
      @FetchRequest(
-          sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+          sortDescriptors: [NSSortDescriptor(keyPath: \Item.id, ascending: true)],
           animation: .default)
+     
      private var items: FetchedResults<Item>
      @EnvironmentObject var showingSheet: User
      
@@ -57,7 +58,7 @@ struct ContentView: View {
                }
           }
      }
-     
+     //TODOバグ
      func rowReplace(_ from: IndexSet, _ to: Int) {
           WebList.move(fromOffsets: from, toOffset: to)
      }

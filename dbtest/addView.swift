@@ -14,6 +14,7 @@ struct addView: View {
     @State var name:String = ""
     @State var url:String = ""
     @EnvironmentObject var showingSheet: User
+    @EnvironmentObject var id: Id
     
     var body: some View {
         VStack{
@@ -41,6 +42,7 @@ struct addView: View {
             
             Button("追加") {
                 if(name != "" && url != ""){
+                    id.id = id.id + 1
                     addItem()
                     name = "" as String
                     url = "" as String
@@ -54,8 +56,8 @@ struct addView: View {
     func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-            newItem.id = UUID()
+//            newItem.timestamp = Date()
+            newItem.id = id.id
             newItem.name = name
             newItem.url = url
             do {
@@ -79,5 +81,6 @@ struct addView_Previews: PreviewProvider {
     static var previews: some View {
         addView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(User())
+            .environmentObject(Id())
     }
 }
