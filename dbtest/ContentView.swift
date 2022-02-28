@@ -17,6 +17,7 @@ struct ContentView: View {
      
      private var items: FetchedResults<Item>
      @EnvironmentObject var showingSheet: User
+     @EnvironmentObject var id: Id
      
      var body: some View {
           VStack{
@@ -32,7 +33,8 @@ struct ContentView: View {
                                         .strikethrough()
                                    + Text("　※リンクが有効ではありません")
                               }
-                         }.onDelete(perform: deleteItems) .onMove(perform: rowReplace)
+                         }.onDelete(perform: deleteItems)
+//                              .onMove(perform: rowReplace)
                          Button("+") {
                               self.showingSheet.showingSheet.toggle()
                          }.sheet(isPresented: $showingSheet.showingSheet) {
@@ -58,10 +60,10 @@ struct ContentView: View {
                }
           }
      }
-     //TODOバグ
-     func rowReplace(_ from: IndexSet, _ to: Int) {
-          WebList.move(fromOffsets: from, toOffset: to)
-     }
+     //TODOバグ 未来に期待
+//     func rowReplace(_ from: IndexSet, _ to: Int) {
+//          WebList.move(fromOffsets: from, toOffset: to)
+//     }
      
 }
 
@@ -69,5 +71,6 @@ struct ContentView_Previews: PreviewProvider {
      static var previews: some View {
           ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
                .environmentObject(User())
+               .environmentObject(Id())
      }
 }
