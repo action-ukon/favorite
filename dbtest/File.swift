@@ -7,7 +7,7 @@
 
 import Foundation
 struct WebData: Identifiable{
-    var timestamp = Date()
+//    var timestamp = Date()
     var id:Int64
     var name:String
     var url:String
