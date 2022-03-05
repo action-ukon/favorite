@@ -26,7 +26,6 @@ struct ContentView: View {
                               let url = URL(string: item.url ?? "")!
                               if(UIApplication.shared.canOpenURL(url)){
                                    Link(item.name ?? "", destination: url)
-                                   let _ = Self._printChanges()
                               }else{
                                    Text(item.name ?? "")
                                         .foregroundColor(.gray)
@@ -36,7 +35,6 @@ struct ContentView: View {
                          }.onDelete(perform: deleteItems) .onMove(perform: rowReplace)
                          Button("+") {
                               self.showingSheet.showingSheet.toggle()
-                              print("aaa")
                          }.sheet(isPresented: $showingSheet.showingSheet) {
                               addView()
                          }
@@ -60,16 +58,7 @@ struct ContentView: View {
                }
           }
      }
-     //TODOバグ 未来に期待
-//     func rowReplace(from source: IndexSet, to destination: Int) {
-//          if source.first! > destination {
-//              items[source.first!].id = items[destination].id - 1
-//              for i in destination...items.count - 1 {
-//                  items[i].id = items[i].id + 1
-//              }
-//          }
-//ß
-//     }
+
      func rowReplace(from source: IndexSet, to destination: Int) {
          //下から上に並べ替え時の挙動
          if source.first! > destination {

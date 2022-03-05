@@ -56,7 +56,6 @@ struct addView: View {
     func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
             newItem.id = id.id
             newItem.name = name
             newItem.url = url
