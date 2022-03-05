@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct WebData: Identifiable{
 //    var timestamp = Date()
     var id:Int64
@@ -23,3 +24,5 @@ class User: ObservableObject {
 class Id: ObservableObject {
     @Published var id:Int64 = 0
 }
+
+

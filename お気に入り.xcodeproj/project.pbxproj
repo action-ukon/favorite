@@ -11,19 +11,20 @@
 		E199E85227BD548C000B1A62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E199E85127BD548C000B1A62 /* ContentView.swift */; };
 		E199E85427BD548E000B1A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E199E85327BD548E000B1A62 /* Assets.xcassets */; };
 		E199E85727BD548E000B1A62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E199E85627BD548E000B1A62 /* Preview Assets.xcassets */; };
-		E199E85927BD548E000B1A62 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E199E85827BD548E000B1A62 /* Persistence.swift */; };
+		E199E85927BD548E000B1A62 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E199E85827BD548E000B1A62 /* dataModel.swift */; };
 		E199E85C27BD548E000B1A62 /* dbtest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E199E85A27BD548E000B1A62 /* dbtest.xcdatamodeld */; };
 		E1B1B80A27BE68F400D66126 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B1B80927BE68F400D66126 /* File.swift */; };
 		E1B1B82B27BFA72900D66126 /* addView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B1B82A27BFA72900D66126 /* addView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E15648ED27D27E3400908634 /* memo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = memo.md; sourceTree = "<group>"; };
 		E199E84C27BD548C000B1A62 /* お気に入り.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "お気に入り.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E199E84F27BD548C000B1A62 /* dbtestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbtestApp.swift; sourceTree = "<group>"; };
 		E199E85127BD548C000B1A62 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 5; };
 		E199E85327BD548E000B1A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E199E85627BD548E000B1A62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E199E85827BD548E000B1A62 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E199E85827BD548E000B1A62 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		E199E85B27BD548E000B1A62 /* dbtest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dbtest.xcdatamodel; sourceTree = "<group>"; };
 		E1B1B80927BE68F400D66126 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E1B1B82A27BFA72900D66126 /* addView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addView.swift; sourceTree = "<group>"; };
@@ -61,9 +62,10 @@
 			children = (
 				E199E84F27BD548C000B1A62 /* dbtestApp.swift */,
 				E199E85127BD548C000B1A62 /* ContentView.swift */,
+				E15648ED27D27E3400908634 /* memo.md */,
 				E1B1B82A27BFA72900D66126 /* addView.swift */,
 				E199E85327BD548E000B1A62 /* Assets.xcassets */,
-				E199E85827BD548E000B1A62 /* Persistence.swift */,
+				E199E85827BD548E000B1A62 /* dataModel.swift */,
 				E1B1B80927BE68F400D66126 /* File.swift */,
 				E199E85A27BD548E000B1A62 /* dbtest.xcdatamodeld */,
 				E199E85527BD548E000B1A62 /* Preview Content */,
@@ -151,7 +153,7 @@
 			files = (
 				E1B1B82B27BFA72900D66126 /* addView.swift in Sources */,
 				E1B1B80A27BE68F400D66126 /* File.swift in Sources */,
-				E199E85927BD548E000B1A62 /* Persistence.swift in Sources */,
+				E199E85927BD548E000B1A62 /* dataModel.swift in Sources */,
 				E199E85C27BD548E000B1A62 /* dbtest.xcdatamodeld in Sources */,
 				E199E85227BD548C000B1A62 /* ContentView.swift in Sources */,
 				E199E85027BD548C000B1A62 /* dbtestApp.swift in Sources */,

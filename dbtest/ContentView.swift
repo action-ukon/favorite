@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
      @Environment(\.managedObjectContext) private var viewContext
@@ -27,16 +26,17 @@ struct ContentView: View {
                               let url = URL(string: item.url ?? "")!
                               if(UIApplication.shared.canOpenURL(url)){
                                    Link(item.name ?? "", destination: url)
+                                   let _ = Self._printChanges()
                               }else{
                                    Text(item.name ?? "")
                                         .foregroundColor(.gray)
                                         .strikethrough()
                                    + Text("　※リンクが有効ではありません")
                               }
-                         }.onDelete(perform: deleteItems)
-//                              .onMove(perform: rowReplace)
+                         }.onDelete(perform: deleteItems) .onMove(perform: rowReplace)
                          Button("+") {
                               self.showingSheet.showingSheet.toggle()
+                              print("aaa")
                          }.sheet(isPresented: $showingSheet.showingSheet) {
                               addView()
                          }
@@ -61,10 +61,37 @@ struct ContentView: View {
           }
      }
      //TODOバグ 未来に期待
-//     func rowReplace(_ from: IndexSet, _ to: Int) {
-//          WebList.move(fromOffsets: from, toOffset: to)
+//     func rowReplace(from source: IndexSet, to destination: Int) {
+//          if source.first! > destination {
+//              items[source.first!].id = items[destination].id - 1
+//              for i in destination...items.count - 1 {
+//                  items[i].id = items[i].id + 1
+//              }
+//          }
+//ß
 //     }
-     
+     func rowReplace(from source: IndexSet, to destination: Int) {
+         //下から上に並べ替え時の挙動
+         if source.first! > destination {
+             items[source.first!].id = items[destination].id - 1
+             for i in destination...items.count - 1 {
+                 items[i].id = items[i].id + 1
+             }
+         }
+
+         //上から下に並べ替え時の挙動
+         if source.first! < destination {
+             items[source.first!].id = items[destination - 1].id + 1
+             for i in 0...destination - 1 {
+                 items[i].id = items[i].id - 1
+             }
+         }
+       saveData()
+     }
+
+     func saveData() {
+         try? self.viewContext.save()
+     }
 }
 
 struct ContentView_Previews: PreviewProvider {
