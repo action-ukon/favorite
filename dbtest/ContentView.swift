@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
      @Environment(\.managedObjectContext) private var viewContext
@@ -24,13 +25,12 @@ struct ContentView: View {
                     List {
                          ForEach(items) { item in
                               let url = URL(string: item.url ?? "")!
+                              let link = Link(item.name ?? "", destination: url)
+                              let errLink = Text(item.name ?? "").foregroundColor(.gray).strikethrough() + Text("　※リンクが有効ではありません")
                               if(UIApplication.shared.canOpenURL(url)){
-                                   Link(item.name ?? "", destination: url)
+                                   link
                               }else{
-                                   Text(item.name ?? "")
-                                        .foregroundColor(.gray)
-                                        .strikethrough()
-                                   + Text("　※リンクが有効ではありません")
+                                   errLink
                               }
                          }.onDelete(perform: deleteItems) .onMove(perform: rowReplace)
                          Button("+") {
