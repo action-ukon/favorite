@@ -64,7 +64,7 @@ struct ContentView: View {
      func rowReplace(from source: IndexSet, to destination: Int) {
          //下から上に並べ替え時の挙動
          if source.first! > destination {
-             items[source.first!].order = items[destination].order + 1
+             items[source.first!].order = items[destination].order - 1
              for i in destination...items.count - 1 {
                  items[i].order = items[i].order + 1
              }
