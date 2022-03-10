@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct ContentView: View {
      @Environment(\.managedObjectContext) private var viewContext

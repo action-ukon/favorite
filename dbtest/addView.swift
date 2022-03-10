@@ -6,7 +6,6 @@
 //  Created by 坪田和樹 on 2022/02/13.
 //
 import SwiftUI
-import Foundation
 
 struct addView: View {
     
