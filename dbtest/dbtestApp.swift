@@ -16,7 +16,7 @@ struct dbtestApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(User())
-                .environmentObject(Id())
+                .environmentObject(Order())
         }
     }
 }

@@ -18,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E15648ED27D27E3400908634 /* memo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = memo.md; sourceTree = "<group>"; };
 		E199E84C27BD548C000B1A62 /* お気に入り.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "お気に入り.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E199E84F27BD548C000B1A62 /* dbtestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbtestApp.swift; sourceTree = "<group>"; };
 		E199E85127BD548C000B1A62 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -62,7 +61,6 @@
 			children = (
 				E199E84F27BD548C000B1A62 /* dbtestApp.swift */,
 				E199E85127BD548C000B1A62 /* ContentView.swift */,
-				E15648ED27D27E3400908634 /* memo.md */,
 				E1B1B82A27BFA72900D66126 /* addView.swift */,
 				E199E85327BD548E000B1A62 /* Assets.xcassets */,
 				E199E85827BD548E000B1A62 /* dataModel.swift */,
