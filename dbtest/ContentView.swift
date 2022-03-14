@@ -18,7 +18,6 @@ struct ContentView: View {
      @EnvironmentObject var showingSheet: User
      @EnvironmentObject var order: Order
      
-     //issue IDを一意にする
      var body: some View {
           VStack{
                NavigationView {
@@ -27,7 +26,6 @@ struct ContentView: View {
                               let url = URL(string: item.url ?? "")!
                               let link = Link(item.name ?? "", destination: url)
                               let errLink = Text(item.name ?? "").foregroundColor(.gray).strikethrough() + Text("　※リンクが有効ではありません")
-                              // 三項演算子BaseNode
                               if(UIApplication.shared.canOpenURL(url)){
                                    link
                               }else{

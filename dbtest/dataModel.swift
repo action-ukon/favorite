@@ -4,7 +4,6 @@
 //
 //  Created by 坪田和樹 on 2022/02/17.
 //
-
 import CoreData
 
 struct PersistenceController {
